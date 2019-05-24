@@ -76,8 +76,9 @@ main {
 }
 
 [class*="col-"]:hover,
-.main-row .on-hover,
-.main-col .on-hover {
+[class*="col-"].on-hover,
+.main-row:hover .col-1,
+.main-col:hover + .main-row .col-1 {
   background-color: var(--bg-color);
   border-color: var(--accent-color);
   border-radius: 5px;
@@ -85,8 +86,9 @@ main {
 
 .main-row > div:hover,
 .main-col > div:hover,
-.main-row .on-hover,
-.main-col .on-hover {
+[class*="col-"].on-hover,
+.main-row:hover .col-1,
+.main-col:hover + .main-row .col-1 {
   transform: scale(1.1);
   transition: all .05s;
 }
