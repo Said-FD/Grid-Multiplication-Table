@@ -1,5 +1,5 @@
 const table = document.querySelector('.grid-cells')
-const tableCells = [... document.querySelectorAll('.grid-cells > div')]
+const tableCells = [... table.querySelectorAll('div')]
 const mainCells = [... document.querySelectorAll('.main-col, .main-row')]
 const mainCol = [... mainCells[0].querySelectorAll('div')]
 const mainRow = [... mainCells[1].querySelectorAll('div')]
