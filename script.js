@@ -1,8 +1,50 @@
 const table = document.querySelector('.grid-cells')
-const tableCells = [... table.querySelectorAll('div')]
 const mainCells = [... document.querySelectorAll('.main-col, .main-row')]
-const mainCol = [... mainCells[0].querySelectorAll('div')]
-const mainRow = [... mainCells[1].querySelectorAll('div')]
+
+const mainColParams = {
+  num: 2,
+  parent: mainCells[0]
+}
+
+const mainRowParams = {
+  num: 1,
+  parent: mainCells[1]
+}
+
+function createMainCells({num, parent}) {
+  while (num <= 10) {
+    parent.insertAdjacentHTML('beforeend', `<div class="col-${num}">${num}</div>`)
+    num++
+  }
+
+  return parent
+}
+
+const tableParams = {
+  num: 2,
+  classNum: 2,
+  multiplier: 2,
+  parent: table
+}
+
+function createTableRow({num, classNum, multiplier, parent}) {
+  while (multiplier <= 10) {
+    parent.insertAdjacentHTML('beforeend', `<div class="col-${classNum++}">${num * multiplier++}</div>`)
+  }
+}
+
+function createTableCells({num, classNum, multiplier, parent}) {
+  while (num <= 10) {
+    createTableRow({num, classNum, multiplier, parent})
+    num++
+  }
+  
+  return parent
+}
+
+const mainCol = [... createMainCells(mainColParams).querySelectorAll('div')]
+const mainRow = [... createMainCells(mainRowParams).querySelectorAll('div')]
+const tableCells = [... createTableCells(tableParams).querySelectorAll('div')]
 
 function handleMouseover(cell) {
   cell.addEventListener('mouseover', () => {
