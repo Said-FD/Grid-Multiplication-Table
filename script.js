@@ -13,8 +13,7 @@ const mainRowParams = {
 
 function createMainCells({num, parent}) {
   while (num <= 10) {
-    parent.insertAdjacentHTML('beforeend', `<div class="col-${num}">${num}</div>`)
-    num++
+    parent.insertAdjacentHTML('beforeend', `<div class="col-${num}">${num++}</div>`)
   }
 
   return parent
@@ -22,20 +21,19 @@ function createMainCells({num, parent}) {
 
 const tableParams = {
   num: 2,
-  classNum: 2,
   multiplier: 2,
   parent: table
 }
 
-function createTableRow({num, classNum, multiplier, parent}) {
+function createTableRow({num, multiplier, parent}) {
   while (multiplier <= 10) {
-    parent.insertAdjacentHTML('beforeend', `<div class="col-${classNum++}">${num * multiplier++}</div>`)
+    parent.insertAdjacentHTML('beforeend', `<div class="col-${multiplier}">${num * multiplier++}</div>`)
   }
 }
 
-function createTableCells({num, classNum, multiplier, parent}) {
+function createTableCells({num, multiplier, parent}) {
   while (num <= 10) {
-    createTableRow({num, classNum, multiplier, parent})
+    createTableRow({num, multiplier, parent})
     num++
   }
   
