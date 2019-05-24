@@ -58,31 +58,35 @@ main {
   color: var(--text-color);
 }
 
-[class^="col-"] {
+[class*="col-"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  transform-origin: center;
+  border: 1px solid transparent;
 }
 
 .main-row > div + div,
 .grid-cells > div {
-  border-left: 1px solid var(--border-color);
+  border-left-color: var(--border-color);
 }
 
 .main-col > div,
 .grid-cells > div {
-  border-top: 1px solid var(--border-color);
+  border-top-color: var(--border-color);
 }
 
-[class^="col-"]:hover {
+[class*="col-"]:hover,
+.main-row .on-hover,
+.main-col .on-hover {
   background-color: var(--bg-color);
-  border: 1px solid var(--accent-color);
+  border-color: var(--accent-color);
   border-radius: 5px;
 }
 
 .main-row > div:hover,
-.main-col > div:hover {
+.main-col > div:hover,
+.main-row .on-hover,
+.main-col .on-hover {
   transform: scale(1.1);
   transition: all .05s;
 }
