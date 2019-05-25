@@ -4,6 +4,7 @@
 
 body {
   --bg-color: #2E3D49;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   margin: 0;
@@ -33,6 +34,29 @@ main {
   padding: 1.5vmax;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
+  animation: shake .4s .55s ease-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(-3%);
+  }
+
+  25% {
+    transform: translateX(3%);
+  }
+  
+  50% {
+    transform: translateX(-2%);
+  }
+
+  75% {
+    transform: translateX(1.5%);
+  }
+
+  100% {
+    transform: none;
+  }
 }
 
 .main-row,
@@ -45,10 +69,38 @@ main {
 .main-row {
   grid-area: row;
   grid-template-columns: repeat(10, 1fr);
+  transform-origin: top;
+  animation: slide-top .5s ease-in;
+}
+
+@keyframes slide-top {
+  0% {
+    opacity: 0;
+    transform: translateY(calc(-100% - 1.5vmax));
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .main-col {
   grid-area: col;
+  transform-origin: left;
+  animation: slide-left .5s ease-in;
+}
+
+@keyframes slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(calc(-100% - 1.5vmax));
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .grid-cells {
@@ -56,6 +108,20 @@ main {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   color: var(--text-color);
+  transform-origin: left;
+  animation: slide-right .5s ease-in;
+}
+
+@keyframes slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(calc(100% + 1.5vmax));
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 [class*="col-"] {
