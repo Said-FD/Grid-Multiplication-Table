@@ -11,18 +11,18 @@ const mainRowParams = {
   parent: mainCells[1]
 }
 
+const tableParams = {
+  num: 2,
+  multiplier: 2,
+  parent: table
+}
+
 function createMainCells({num, parent}) {
   while (num <= 10) {
     parent.insertAdjacentHTML('beforeend', `<div class="col-${num}">${num++}</div>`)
   }
 
   return parent
-}
-
-const tableParams = {
-  num: 2,
-  multiplier: 2,
-  parent: table
 }
 
 function createTableRow({num, multiplier, parent}) {
